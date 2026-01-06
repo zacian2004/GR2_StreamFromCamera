@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  # 1. Media Server: Trái tim của hệ thống stream
+  media-server:
+    image: bluenviron/mediamtx:latest
+    container_name: my-media-server
+    ports:
+      - "8554:8554" # RTSP (Giao thức cơ bản)
+      - "1935:1935" # RTMP (Dùng để OBS/Camera đẩy luồng vào)
+      - "8888:8888" # HLS (Giao thức HTTP để xem trên Web)
+      - "8889:8889" # WebRTC (Xem độ trễ thấp)
+    environment:
+      # Cấu hình nhanh để bật HLS (nếu cần chỉnh sâu hơn thì dùng file config riêng)
+      - MTX_HLS_ALWAYS_REMUX=yes
+    networks:
+      - stream-net
+    restart: unless-stopped
+
+  # 2. Backend API: Server Node.js bạn vừa viết
+  backend:
+    build: ./backend # Docker sẽ tự build image từ thư mục backend
+    container_name: my-backend-api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app # Mount code để sửa code không cần build lại
+      - /app/node_modules # Tránh ghi đè node_modules trong container
+    environment:
+      - PORT=3000
+    networks:
+      - stream-net
+    command: npm start # Hoặc "node index.js"
+
+networks:
+  stream-net:
+    driver: bridge

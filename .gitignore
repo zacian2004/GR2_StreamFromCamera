@@ -1,0 +1,19 @@
+# Bỏ qua thư mục thư viện (tự cài lại bằng npm install được)
+node_modules/
+**/node_modules/
+
+# Bỏ qua file môi trường chứa mật khẩu (sau này dùng)
+.env
+
+# Bỏ qua file log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Bỏ qua thư mục build của Frontend
+frontend/dist/
+frontend/build/
+
+# Bỏ qua file hệ thống
+.DS_Store
+Thumbs.db
