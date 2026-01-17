@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Login from './Login';
 import VideoPlayer from './VideoPlayer';
+import UploadVideo from './UploadVideo';
 
 function App() {
   const [user, setUser] = useState(null);
 
-  const streamUrl = "http://localhost:8888/live/index.m3u8";
+  const [streamUrl, setStreamUrl] = useState("http://localhost:8888/live/index.m3u8");
 
   return (
     <div className="App">
@@ -21,14 +22,26 @@ function App() {
             </div>
           </header>
 
-          <main>
-            <h3>Live Stream từ Camera/OBS</h3>
-            {/* Truyền link stream vào Player */}
-            <VideoPlayer src={streamUrl} />
+          <main style={{ padding: '20px' }}>
+            {/* --- KHU VỰC PHÁT VIDEO --- */}
+            <div style={{ marginBottom: '30px' }}>
+              <h3>Màn hình chính</h3>
+              {/* Truyền streamUrl động vào Player */}
+              <VideoPlayer src={streamUrl} />
+            </div>
             
-            <div style={{ margin: '20px', padding: '20px', border: '1px dashed #aaa' }}>
-              <h4>Khu vực Upload Video (Tính năng sắp tới)</h4>
-              <p>Chức năng upload file sẽ được xây dựng ở bước tiếp theo...</p>
+            <hr />
+
+            {/* --- KHU VỰC UPLOAD --- */}
+            <UploadVideo onUploadSuccess={(newUrl) => {
+              setStreamUrl(newUrl);
+              alert("Đã chuyển sang phát video vừa upload!");
+            }} />
+            
+            <div style={{ marginTop: '20px' }}>
+               <button onClick={() => setStreamUrl("http://localhost:8888/live/index.m3u8")}>
+                 Quay về xem Live Stream (OBS)
+               </button>
             </div>
           </main>
         </div>

@@ -4,6 +4,9 @@ FROM node:18-alpine
 # Thiết lập thư mục làm việc bên trong container
 WORKDIR /app
 
+# Cài đặt ffmpeg để xử lý video
+RUN apk add --no-cache ffmpeg
+
 # Copy file package.json vào trước để cài thư viện
 COPY package*.json ./
 
