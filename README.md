@@ -56,21 +56,13 @@ Mở OBS Studio và cấu hình như sau:
 
 ## Hướng dẫn sử dụng:
 
-### 1: Đăng nhập: Sử dụng tài khoản email sinh viên HUST và mật khẩu tương ứng (Hệ thống gọi API thực tế để kiểm tra).
+### 1: Đăng nhập: 
+Sử dụng tài khoản email sinh viên HUST và mật khẩu tương ứng (Hệ thống gọi API thực tế để kiểm tra).
 
-### 2: Xem Live Stream: Sau khi đăng nhập, nếu OBS đang chạy, video sẽ tự động phát.
+### 2: Xem Live Stream: 
+Sau khi đăng nhập, nếu OBS đang chạy, video sẽ tự động phát.
 
 ### 3: Upload Video:
 Chọn file .mp4 từ máy tính.
 Nhấn Upload. Hệ thống sẽ xử lý ngầm và chuyển hướng player sang video vừa tải lên.
 
-## Cấu trúc thư mục:
-
-.
-├── backend/            # Source code Node.js API
-│   ├── Dockerfile      # Cấu hình build Docker cho Backend
-│   ├── hls/            # Thư mục chứa video đã transcode (Docker Volume)
-│   └── uploads/        # Thư mục tạm chứa file gốc
-├── frontend/           # Source code ReactJS
-├── docker-compose.yml  # Cấu hình Orchestration
-└── README.md
