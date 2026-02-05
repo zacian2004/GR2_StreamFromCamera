@@ -1,4 +1,4 @@
-# HuST Streaming Platform
+# HUST Streaming Platform
 
 Hệ thống phát trực tiếp và lưu trữ video sử dụng kiến trúc Microservices đơn giản hóa với Docker.
 Dự án bao gồm tính năng đăng nhập xác thực sinh viên, phát luồng trực tiếp từ OBS và upload video tự động chuyển mã sang chuẩn HLS.
