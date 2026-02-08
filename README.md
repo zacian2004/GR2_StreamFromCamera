@@ -20,14 +20,14 @@ Dự án bao gồm tính năng đăng nhập xác thực sinh viên, phát luồ
 * **Media Server:** MediaMTX (Docker)
 * **Containerization:** Docker & Docker Compose
 
-## ⚙️ Yêu cầu cài đặt (Prerequisites)
+## Yêu cầu cài đặt (Prerequisites)
 
 Để chạy được dự án này, máy tính của bạn cần cài đặt:
 1.  [Docker Desktop](https://www.docker.com/products/docker-desktop) (Để chạy Backend & Media Server)
 2.  [Node.js](https://nodejs.org/) (Để chạy Frontend)
 3.  [OBS Studio](https://obsproject.com/) (Để giả lập luồng livestream)
 
-## 📦 Hướng dẫn cài đặt & Khởi chạy
+## Hướng dẫn cài đặt & Khởi chạy
 
 ### Bước 1: Khởi động Backend & Media Server
 Mở terminal tại thư mục gốc của dự án và chạy:
